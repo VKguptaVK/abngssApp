@@ -1,3 +1,4 @@
+import 'package:abngss/homepage.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -7,19 +8,40 @@ class WelcomePage extends StatefulWidget {
   _WelcomePageState createState() => _WelcomePageState();
 }
 
-// ho gya install chk kro phone call kru
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Abngss"),
-        ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Center(child: Text("Coming Soon")),
-          ],
-        ));
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 100,
+          width: MediaQuery.of(context).size.width,
+        ),
+        const Text(
+          "Abngss",
+          style: TextStyle(fontSize: 30, color: Colors.orange),
+        ),
+        const SizedBox(height: 50),
+        const Text("Coming Soon"),
+        const Expanded(child: SizedBox()),
+        SizedBox(
+          height: 60,
+          width: 280,
+          child: ElevatedButton(
+            onPressed: () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const HomePage()));},
+            child: const Text("HomePage"),
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 50),
+      ],
+    ));
   }
 }
